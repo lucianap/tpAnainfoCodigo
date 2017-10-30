@@ -9,7 +9,7 @@ public class Desarrollador implements Rol {
     Permiso permisos;
 
     public Desarrollador(){
-        PermisosFactory.createPermisosFor(this);
+        permisos = PermisosFactory.createPermisosFor(this);
     }
 
     public Permiso getPermisos() {

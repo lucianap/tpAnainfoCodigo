@@ -9,7 +9,7 @@ public class Lider implements Rol {
     Permiso permisos;
 
     public Lider(){
-        PermisosFactory.createPermisosFor(this);
+        permisos = PermisosFactory.createPermisosFor(this);
     }
 
     @Override

@@ -26,7 +26,7 @@ public class AddTarjetaToFeatureSteps {
     private final Tarjeta tarjeta = new Tarjeta();
 
     @Dado("^que mi rol es de \"(.*?)\"")
-    public void que_mi_caja_de_ahorro_tiene_un_saldo_de_pesos(String rol) throws Throwable {
+    public void que_mi_rol_es_de(String rol) throws Throwable {
         usuario = new Usuario("pepe", new Colaborador());
         if(rol.equalsIgnoreCase("Desarrollador")) {
             usuario.setRol(new Desarrollador());
@@ -39,17 +39,17 @@ public class AddTarjetaToFeatureSteps {
         }
     }
 
-    @Cuando("^cuando intento agregar una tarjeta a una feature")
-    public void addTarjetaToFeature(int montoADebitar) throws Throwable {
+    @Cuando("^intento agregar una tarjeta a una feature")
+    public void intento_agregar_una_tarjeta_a_una_feature() throws Throwable {
         resultadoExitoso = usuario.addTarjetaToFeature(feature, tarjeta);
     }
 
-    @Entonces("^el resultado es exitoso")
+    @Entonces("^el resultado es exitoso y la feature es agregada")
     public void el_resultado_es_exitoso() throws Throwable {
         assertTrue(resultadoExitoso);
     }
 
-    @Entonces("^la operacion es rechazada")
+    @Entonces("^la operacion es rechazada y la feature no es agregada")
     public void la_operacion_es_rechazada() throws Throwable {
         assertFalse(resultadoExitoso);
     }
