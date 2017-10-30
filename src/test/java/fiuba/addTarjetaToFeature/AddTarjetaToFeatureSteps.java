@@ -15,7 +15,7 @@ import fiuba.FachadaBanco;
 import static org.junit.Assert.*;
 
 /**
- * Created by L
+ * Created by L.
  */
 public class AddTarjetaToFeatureSteps {
 
