@@ -1,9 +1,9 @@
 package PSA.gestion.roles;
 
-import java.util.List;
+import PSA.gestion.permisos.Permiso;
 
 public interface Rol {
 
-    public List<Permiso> getPermisos();
+    Permiso getPermisos();
 
 }
