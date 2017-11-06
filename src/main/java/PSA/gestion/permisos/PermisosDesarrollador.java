@@ -3,6 +3,9 @@ package PSA.gestion.permisos;
 public class PermisosDesarrollador extends Permiso {
 
     public PermisosDesarrollador() {
-        name = "DES";
+        this.crear = false;
+        this.asignar = false;
+        this.moverBacklog = false;
+        this.mover = true;
     }
 }
