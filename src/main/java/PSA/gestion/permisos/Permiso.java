@@ -7,10 +7,4 @@ public class Permiso {
     public boolean moverBacklog;
     public boolean mover;
 
-//    @Override
-//    public boolean equals(Object o){
-//        Permiso other = (Permiso) o;
-//        return other.name.equals(this.name);
-//    }
-
 }

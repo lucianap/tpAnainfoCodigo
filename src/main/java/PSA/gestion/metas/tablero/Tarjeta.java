@@ -3,7 +3,6 @@ package PSA.gestion.metas.tablero;
 import PSA.gestion.Usuario;
 import PSA.gestion.metas.tablero.estados.Backlog;
 import PSA.gestion.metas.tablero.estados.Estado;
-import PSA.gestion.permisos.PermisosDesarrollador;
 
 public class Tarjeta {
 
@@ -38,12 +37,10 @@ public class Tarjeta {
         if (!estado.esFinal()) {
             this.estado = estado.avanzar();
         }
-//        estado.avanzar();
     }
 
     public Estado getEstado() {
         return estado;
-//        return estado.getEstado();
     }
 
     public int getId() {

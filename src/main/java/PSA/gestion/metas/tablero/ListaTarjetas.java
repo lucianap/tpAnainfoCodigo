@@ -1,7 +1,6 @@
 package PSA.gestion.metas.tablero;
 
 import PSA.gestion.metas.tablero.estados.Estado;
-import PSA.gestion.metas.tablero.estados.Estados;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,9 +38,5 @@ public class ListaTarjetas {
             }
         }
         return lista;
-    }
-
-    public List<Tarjeta> getTarjetas() {
-        return tarjetas;
     }
 }

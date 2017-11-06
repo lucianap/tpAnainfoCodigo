@@ -1,6 +1,5 @@
 package PSA.gestion.metas;
 
-import PSA.gestion.Usuario;
 import PSA.gestion.metas.tablero.Tarjeta;
 
 import java.util.ArrayList;
