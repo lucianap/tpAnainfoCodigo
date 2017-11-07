@@ -16,21 +16,18 @@ public class TarjetaSteps {
 
     private Usuario usuario;
 
-    private final Funcionalidad funcionalidad = new Funcionalidad();
-    private final Tarjeta tarjeta = new Tarjeta();
-    private final Tablero tablero = new Tablero();
+    private Funcionalidad funcionalidad;
+    private Tarjeta tarjeta;
+    private Tablero tablero;
 
     // AGREGAR TARJETA
     @Dado("^que mi rol es de \"(.*?)\"")
     public void que_mi_rol_es_de(String rol) throws Throwable {
         usuario = new Usuario("bar", RolFactory.obtenerRol(rol));
 
-/*        if(rol.equalsIgnoreCase("Desarrollador")) {
-            usuario.setRol(new Desarrollador());
-        } else if(rol.equalsIgnoreCase("Lider")){
-            usuario.setRol(new Lider());
-        }
-*/
+        funcionalidad = new Funcionalidad();
+        tarjeta = new Tarjeta();
+        tablero = new Tablero();
     }
 
     @Cuando("^intento agregar una tarjeta a una funcionalidad")
@@ -84,6 +81,7 @@ public class TarjetaSteps {
 
     @Cuando("^intento mover una tarjeta del Backlog a ToDo$")
     public void intento_mover_una_tarjeta_del_backlog_a_todo() throws Throwable {
+        usuario.agregarTarjetaATablero(tablero, tarjeta);
         usuario.moverTarjetaDelBacklog(tarjeta.getId(), tablero);
     }
 
@@ -99,6 +97,11 @@ public class TarjetaSteps {
 
     @Cuando("^intento mover una tarjeta de la columna ToDo$")
     public void intento_mover_una_tarjeta_de_la_columna_ToDo() throws Throwable {
+
+        Usuario lider = new Usuario("foo", RolFactory.obtenerRol("lider"));
+        lider.agregarTarjetaATablero(tablero, tarjeta);
+        lider.moverTarjetaDelBacklog(tarjeta.getId(), tablero);
+
         usuario.moverTarjeta(tarjeta.getId(), tablero);
     }
 
@@ -114,6 +117,13 @@ public class TarjetaSteps {
 
     @Cuando("^intento mover una tarjeta de la columna Doing$")
     public void intento_mover_una_tarjeta_de_la_columna_Doing() throws Throwable {
+        Usuario lider = new Usuario("foo", RolFactory.obtenerRol("lider"));
+        lider.agregarTarjetaATablero(tablero, tarjeta);
+        lider.moverTarjetaDelBacklog(tarjeta.getId(), tablero);
+        Usuario desarrollador = new Usuario("foob", RolFactory.obtenerRol("desarrollador"));
+        desarrollador.moverTarjeta(tarjeta.getId(), tablero);
+
+        usuario.moverTarjeta(tarjeta.getId(), tablero);
     }
 
     @Entonces("^la tarjeta es no sacada de Doing$")
